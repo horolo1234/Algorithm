@@ -43,17 +43,43 @@ public class LinkedQueue<E> implements Queue<E> {
 
     @Override
     public E dequeue() {
-        return null;
+        if(isEmpty()){
+            throw new RuntimeException("큐가 비어있습니다");
+        }
+
+        Node<E> tempNode = front;
+        E element = tempNode.data;
+
+        front = tempNode.next;
+        tempNode.data = null;
+        tempNode.next = null;
+
+        size--;
+        return element;
     }
 
     @Override
     public boolean contains(E element) {
-        return false;
+        boolean result = false;
+        Node<E> currentNode = front;
+
+        while (currentNode != null){
+            if(currentNode.data.equals(element)){
+                result = true;
+                break;
+            }
+            currentNode = currentNode.next;
+        }
+        return result;
     }
 
     @Override
     public E peek() {
-        return null;
+        if(isEmpty()){
+            throw new RuntimeException("큐가 비어있습니다");
+        }else{
+            return front.data;
+        }
     }
 
     @Override
@@ -62,10 +88,10 @@ public class LinkedQueue<E> implements Queue<E> {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         while (currentNode != null){
-            if(currentNode.next == null){
-                sb.append(currentNode.data);
+//            if(currentNode.next == null){
+//                sb.append(currentNode.data);
 //                break;
-            }
+//            }
             sb.append(currentNode.data).append(", ");
             currentNode = currentNode.next;
         }

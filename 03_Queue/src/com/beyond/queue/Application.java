@@ -55,28 +55,32 @@ public class Application {
         System.out.println(queue.isEmpty());
         System.out.println();
 
+        System.out.println(queue.contains("복숭아"));
+        System.out.println(queue.contains("오렌지"));
+        System.out.println();
+
         System.out.println(queue.dequeue());
         System.out.println(queue.dequeue());
         System.out.println(queue);
         System.out.println(queue.size());
         System.out.println(queue.isEmpty());
         System.out.println();
-//
-//        queue.enqueue("바나나");
-//        queue.enqueue("두리안");
-//        System.out.println(queue);
-//        System.out.println(queue.size());
-//        System.out.println(queue.isEmpty());
-//        System.out.println();
-//
-//        System.out.println(queue.dequeue());
-//        System.out.println(queue.dequeue());
-//        System.out.println(queue.dequeue());
-//        System.out.println(queue.dequeue());
-//        System.out.println(queue.dequeue());
-//        System.out.println(queue.size());
-//        System.out.println(queue.isEmpty());
-//        System.out.println();
+
+        queue.enqueue("바나나");
+        queue.enqueue("두리안");
+        System.out.println(queue);
+        System.out.println(queue.size());
+        System.out.println(queue.isEmpty());
+        System.out.println();
+
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.size());
+        System.out.println(queue.isEmpty());
+        System.out.println();
 
     }
 }
