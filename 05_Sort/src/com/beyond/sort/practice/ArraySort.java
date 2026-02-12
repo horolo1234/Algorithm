@@ -83,4 +83,45 @@ public class ArraySort {
             numbers[left + k] = temp[k];
         }
     }
+
+    public static void quickSort(int[] numbers, int left, int right) {
+        // 분할할 부분이 남아 있는 경우
+        if (left < right) {
+            // pivot을 기준으로 배열을 분할하고 pivot의 인덱스를 반환
+            int pivotIndex = partition(numbers, left, right);
+
+            // pivot을 기준으로 왼쪽 부분 배열 정렬
+            quickSort(numbers, left, pivotIndex - 1);
+
+            // pivot을 기준으로 오른쪽 부분 배열 정렬
+            quickSort(numbers, pivotIndex + 1, right);
+        }
+    }
+
+    private static int partition(int[] numbers, int left, int right) {
+        // 배열의 마지막 요소를 pivot으로 지정
+        int pivot = numbers[right];
+
+        // pivot보다 작은 값을 가지는 요소들의 시작 인덱스
+        int i = left - 1;
+
+        int temp;
+
+        // 배열을 탐색하면서 pivot보다 작은 요소를 왼쪽으로 이동
+        for (int j = left; j < right; j++) {
+            if (numbers[j] < pivot) {
+                temp = numbers[++i];
+                numbers[i] = numbers[j];
+                numbers[j] = temp;
+            }
+        }
+
+        // pivot을 적절한 위치로 이동
+        temp = numbers[i + 1];
+        numbers[i + 1] = numbers[right];
+        numbers[right] = temp;
+
+        // pivot의 인덱스를 반환
+        return i + 1;
+    }
 }
